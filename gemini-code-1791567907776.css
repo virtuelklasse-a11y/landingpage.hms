@@ -1,0 +1,8 @@
+:root {
+  --color-principal: #E01616; /* Color rojo solicitado */
+}
+
+/* Ejemplo de aplicación en elementos */
+.btn-primary, .header-title, .accent-bar {
+  background-color: #E01616; /* o color: #E01616; según corresponda */
+}
