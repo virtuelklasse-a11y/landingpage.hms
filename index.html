@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Virtuales de Ingeniería | H&G Engineering</title>
+    <style>
+        :root {
+            --azul-egipcio: #1034A6;
+            --azul-cielo: #0284C7;
+            --guinda: #993355;
+            --guinda-hover: #7A2641;
+            --gris-oscuro: #2C3E50;
+            --blanco: #FFFFFF;
+            --negro: #111111;
+            --fondo-gris: #F8FAFC;
+            --borde-color: #CBD5E1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fondo-gris);
+            color: var(--gris-oscuro);
+            line-height: 1.7;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--negro);
+            color: var(--blanco);
+            padding: 0.6rem 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .top-bar span {
+            color: var(--azul-cielo);
+            font-weight: bold;
+        }
+
+        /* Header / Nav */
+        header {
+            background-color: var(--blanco);
+            border-bottom: 3px solid var(--azul-egipcio);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .logo h1 {
+            font-size: 1.4rem;
+            color: var(--azul-egipcio);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--azul-egipcio);
+        }
+
+        .logo-sub {
+            font-size: 0.75rem;
+            color: var(--gris-oscuro);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gris-oscuro);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--guinda);
+        }
+
+        .btn-whatsapp-header {
+            background-color: #25D366;
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp-header:hover {
+            background-color: #1EBE5D;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(16, 52, 166, 0.92), rgba(44, 62, 80, 0.92)), url('https://images.unsplash.com/photo-1541888946425-d0fbb18f029b?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: var(--blanco);
+            padding: 5rem 5%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content h2 {
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+            line-height: 1.25;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--guinda);
+            color: var(--blanco);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card {
+            background: var(--blanco);
+            color: var(--negro);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 6px solid var(--guinda);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            color: var(--azul-egipcio);
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .price-tag span {
+            font-size: 1rem;
+            color: var(--gris-oscuro);
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--guinda);
+            color: var(--blanco);
+            padding: 0.85rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background 0.2s, transform 0.1s;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--guinda-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp-main {
+            background-color: #25D366;
+        }
+        .btn-whatsapp-main:hover {
+            background-color: #1EBE5D;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--azul-egipcio);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background-color: var(--guinda);
+            margin: 0.5rem auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Grid Cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--blanco);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--guinda);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--azul-egipcio);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .card p, .card ul {
+            font-size: 0.95rem;
+            color: var(--gris-oscuro);
+        }
+
+        .card ul {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .card li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Detailed Temario Styles */
+        .temario-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .modulo-card {
+            background: var(--blanco);
+            border-radius: 8px;
+            border: 1px solid var(--borde-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+            border-left: 5px solid var(--guinda);
+        }
+
+        .modulo-header {
+            background-color: #F1F5F9;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--borde-color);
+        }
+
+        .modulo-num {
+            background-color: var(--guinda);
+            color: var(--blanco);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .modulo-header h3 {
+            color: var(--azul-egipcio);
+            font-size: 1.15rem;
+        }
+
+        .modulo-body {
+            padding: 1.25rem 1.5rem;
+        }
+
+        .modulo-body ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.5rem 1.5rem;
+        }
+
+        .modulo-body li {
+            font-size: 0.95rem;
+            color: var(--gris-oscuro);
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .modulo-body li::before {
+            content: "•";
+            color: var(--guinda);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none;
+            }
+            .modulo-body ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Docente Section */
+        .docente-section {
+            background: var(--blanco);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2.5rem;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-left: 6px solid var(--guinda);
+        }
+
+        .docente-img {
+            background: linear-gradient(135deg, var(--azul-egipcio), var(--guinda));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Payment Section */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .payment-card {
+            background: var(--blanco);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-top: 4px solid var(--azul-egipcio);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .payment-card h4 {
+            color: var(--azul-egipcio);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .payment-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Analytics Dashboard Widget */
+        .analytics-widget {
+            background: #1E293B;
+            color: #F8FAFC;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            font-family: monospace;
+            font-size: 0.85rem;
+            border-left: 5px solid var(--azul-cielo);
+        }
+
+        .analytics-widget h4 {
+            color: #38BDF8;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            font-family: sans-serif;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-box {
+            background: #0F172A;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid #334155;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--negro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+            border-top: 4px solid var(--guinda);
+        }
+
+        footer p {
+            opacity: 0.85;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body id="inicio">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div>Capacitación Profesional | H&G Engineering & Virtuel</div>
+        <div>Inscripciones Abiertas: <span>WhatsApp +51 960756083</span></div>
+    </div>
+
+    <!-- Header (Botón WhatsApp 1 de 2) -->
+    <header>
+        <div class="logo">
+            <h1>H&G <span>Engineering</span></h1>
+            <div class="logo-sub">Consultora en Ingeniería Hidráulica e Hidrología</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#temario">Temario</a></li>
+                <li><a href="#inversion">Inversión & Pago</a></li>
+                <li><a href="https://wa.me/51960756083?text=Hola,%20quiero%20adquirir%20el%20curso%20HEC-HMS." target="_blank" class="btn-whatsapp-header">💬 WhatsApp Ventas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Modalidad 100% Virtual</span>
+            <h2>Modelación Hidrológica de Caudales Máximos con HEC-HMS</h2>
+            <p>Domina el software líder diseñado para simular procesos de precipitación-escorrentía, análisis de avenidas e inundaciones en cuencas hidrográficas y áreas urbanas.</p>
+            <a href="https://wa.me/51960756083?text=Hola,%20quiero%20adquirir%20el%20curso%20HEC-HMS." target="_blank" class="btn btn-whatsapp-main" style="display:inline-block; width:auto; padding: 0.8rem 2.5rem;">Adquirir Curso por WhatsApp</a>
+        </div>
+        <div class="hero-card">
+            <h3>Inversión por Estudiante</h3>
+            <div class="price-tag">$45 USD <span>/ S/. 150 PEN</span></div>
+            <p style="font-size: 0.85rem; color: var(--gris-oscuro); margin-bottom: 1rem;">Incluye certificado digital oficial (37 horas académicas).</p>
+            <a href="https://wa.me/51960756083?text=Hola,%20quiero%20adquirir%20el%20curso%20HEC-HMS." target="_blank" class="btn btn-whatsapp-main">Adquirir por WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Introducción & Competencia -->
+        <h2 class="section-title">Acerca del Curso</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Contexto & Realidad</h3>
+                <p>Ante los escenarios actuales de cambio climático, abundancia hídrica y eventos extremos de precipitaciones, el modelamiento hidrológico se vuelve una herramienta indispensable para la gestión y mitigación de riesgos.</p>
+            </div>
+            <div class="card">
+                <h3>Competencia General</h3>
+                <p>Aprende a usar HEC-HMS para simular procesos de precipitación-escorrentía en sistemas de cuenca dendríticos, aplicable desde grandes cuencas para suministro de agua hasta pequeñas áreas urbanas.</p>
+            </div>
+            <div class="card">
+                <h3>Logros de Aprendizaje</h3>
+                <ul>
+                    <li>Representación de subcuencas, tramos y reservorios.</li>
+                    <li>Métodos de infiltración y transformación de exceso.</li>
+                    <li>Cálculo de flujo base y tránsito hidrológico.</li>
+                    <li>Interfaz integrada en sistemas de información geográfica (SIG).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Beneficios -->
+        <h2 class="section-title" id="beneficios">Beneficios Exclusivos</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>01. Aula Virtual 24/7</h3>
+                <p>Acceso ilimitado a nuestra plataforma virtual a cualquier hora y desde cualquier parte del mundo.</p>
+            </div>
+            <div class="card">
+                <h3>02. Flexibilidad Horaria</h3>
+                <p>Clases 100% virtuales grabadas; estudia a tu propio ritmo y elige tu propio horario.</p>
+            </div>
+            <div class="card">
+                <h3>03. Certificación Oficial</h3>
+                <p>Obtén un certificado digital de 37 horas académicas emitido por H&G Engineering al concluir tu curso.</p>
+            </div>
+        </div>
+
+        <!-- Docente -->
+        <h2 class="section-title">Docente Especialista</h2>
+        <div class="docente-section">
+            <div class="docente-img">
+                Ing. Gilmar F. Ccorahua Lara
+            </div>
+            <div>
+                <h3 style="color: var(--azul-egipcio); margin-bottom: 0.75rem; font-size: 1.3rem;">Trayectoria y Experiencia</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Formación:</strong> Ingeniero Agrícola de la Universidad Nacional Agraria La Molina (UNALM) / Lima / Perú.</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Especialización:</strong> Modelamiento Hidrológico con RS-MINERVE y HEC-HMS.</p>
+                <p><strong>Experiencia Profesional:</strong> Especialista en estudios de máximas avenidas y embalses en minería. Supervisor de proyectos de control de avenidas, evaluación de flujos, niveles y sedimentos en ríos.</p>
+            </div>
+        </div>
+
+        <!-- Temario Detallado -->
+        <h2 class="section-title" id="temario">Temario Oficial Detallado (37 Horas Académicas)</h2>
+        <div class="temario-container">
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">1</div>
+                    <h3>Introducción al Modelamiento Hidrológico</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>1.1. Origen de la escorrentía</li>
+                        <li>1.2. Estadística hidrológica</li>
+                        <li>1.3. Métodos hidrológicos</li>
+                        <li>1.4. Métodos de Follaje ó Canopy Method</li>
+                        <li>1.5. Métodos de superficie</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">2</div>
+                    <h3>Meteorología</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>2.1. Modelo meteorológico</li>
+                        <li>2.2. Radiación de onda corta y larga</li>
+                        <li>2.3. Precipitación y Evapotranspiración</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">3</div>
+                    <h3>Métodos en Subcuencas</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>3.1. Método de follaje</li>
+                        <li>3.2. Método de superficie</li>
+                        <li>3.3. Método de Pérdida</li>
+                        <li>3.4. Método de Transformación de Precipitación a escorrentía</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">4</div>
+                    <h3>Métodos en Tramos de Ríos</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>4.1. Método de Tránsito de caudales</li>
+                        <li>4.2. Métodos de ganancia o pérdida de flujo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">5</div>
+                    <h3>Reservorios</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>5.1. Reservorio</li>
+                        <li>5.2. Método de enrrutamiento en reservorio</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">6</div>
+                    <h3>Introducción al HEC-HMS</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>6.1. Alcances del HEC-HMS</li>
+                        <li>6.2. Presentación del HEC - HMS</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">7</div>
+                    <h3>Instalación y Corrida del HEC-HMS</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>7.1. Requerimientos del sistema operativo</li>
+                        <li>7.2. Requerimientos del hardware y recomendaciones</li>
+                        <li>7.3. Descarga e instalación</li>
+                        <li>7.4. Corriendo el programa</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">8</div>
+                    <h3>Vista General</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>8.1. Pantalla del programa</li>
+                        <li>8.2. Configuraciones del programa</li>
+                        <li>8.3. Pasos para correr un modelo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">9</div>
+                    <h3>Proyectos y Especificaciones de Control</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>9.1. Proyectos</li>
+                        <li>9.2. Directorios y archivos</li>
+                        <li>9.3. Especificaciones de control</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">10</div>
+                    <h3>Componentes 1</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>10.1. Data de serie de tiempo</li>
+                        <li>10.2. Datos Pareados (Paired Data)</li>
+                        <li>10.3. Dato de Grilla (Grid Data)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">11</div>
+                    <h3>Componentes 2</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>11.1. Modelo de cuenca</li>
+                        <li>11.2. Propiedades de un Modelo de una cuenca</li>
+                        <li>11.3. Mapa de un modelo de la cuenca</li>
+                        <li>11.4. Elementos Hidrológicos</li>
+                        <li>11.5. Red de Flujo</li>
+                        <li>11.6. Zonas</li>
+                        <li>11.7. Puntos de cálculo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">12</div>
+                    <h3>Simulación Hidrológica</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>12.1. Correr las simulaciones</li>
+                        <li>12.2. Calcular los resultados para una corrida</li>
+                        <li>12.3. Vista de resultados para corrida actual</li>
+                        <li>12.4. Vista de resultados para otras corridas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">13</div>
+                    <h3>Modelo de Optimización</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>13.1. Modelo de optimización</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">14</div>
+                    <h3>Pronóstico de Flujo</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>14.1. Pronósticos alternativos</li>
+                        <li>14.2. Ajuste de parámetros para el pronóstico</li>
+                        <li>14.3. Combinar el flujo medido con el flujo observado</li>
+                        <li>14.4. Calcular los resultados para una alternativa</li>
+                        <li>14.5. Visualización de resultados para otras alternativas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">15</div>
+                    <h3>Erosión y Transporte de Sedimentos</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>15.1. Propiedades de sedimentos en cuencas</li>
+                        <li>15.2. Subcuencas</li>
+                        <li>15.3. Tramos</li>
+                        <li>15.4. Reservorios</li>
+                        <li>15.5. Fuentes</li>
+                        <li>15.6. Cruces</li>
+                        <li>15.7. Visualizar los resultados de transporte y erosión</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">16</div>
+                    <h3>HEC-GEOHMS</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>16.1. Procedimiento de pre-proceso (Modelo de elevación digital)</li>
+                        <li>16.2. Características de la cuenca</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    <div class="modulo-num">17</div>
+                    <h3>Calibración del Modelo Hidrológico</h3>
+                </div>
+                <div class="modulo-body">
+                    <ul>
+                        <li>17.1. Análisis de Incertidumbre</li>
+                        <li>17.2. Análisis de sensibilidad</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Inversión y Medios de Pago -->
+        <h2 class="section-title" id="inversion" style="margin-top: 4rem;">Inversión y Medios de Pago</h2>
+        <div class="payment-grid">
+            <div class="payment-card">
+                <h4>PayPal (Internacional)</h4>
+                <p><strong>Monto:</strong> $45 USD</p>
+                <p><strong>Correo PayPal:</strong> hygengineering@gmail.com</p>
+            </div>
+            <div class="payment-card">
+                <h4>BCP (Soles)</h4>
+                <p><strong>Monto:</strong> S/. 150 PEN</p>
+                <p><strong>Titular:</strong> Robert Antony Huerta Guimaray</p>
+                <p><strong>N° Cuenta:</strong> 375-99307944-0-10</p>
+                <p><strong>CCI:</strong> 00237519930794401048</p>
+            </div>
+            <div class="payment-card">
+                <h4>Yape (Soles)</h4>
+                <p><strong>Monto:</strong> S/. 150 PEN</p>
+                <p><strong>N° Celular / Yape:</strong> +51 960756083</p>
+                <p><strong>Titular:</strong> Robert Antony Huerta Guimaray</p>
+            </div>
+            <div class="payment-card">
+                <h4>Western Union (Internacional)</h4>
+                <p><strong>Titular:</strong> Robert Antony Huerta Guimaray</p>
+                <p><strong>DNI:</strong> 72559789 (Lima - Perú)</p>
+            </div>
+        </div>
+
+        <!-- Inscripción Notice (Botón WhatsApp 2 de 2) -->
+        <div style="background: var(--blanco); border-radius: 8px; padding: 2rem; margin-top: 2rem; text-align: center; border-top: 4px solid var(--guinda);">
+            <h3 style="color: var(--azul-egipcio); margin-bottom: 0.75rem;">¿Cómo Inscribirte?</h3>
+            <p style="margin-bottom: 1rem;">Para matricularte, contáctate directamente con nuestro equipo de ventas a través del WhatsApp oficial y envía tu comprobante de pago.</p>
+            <a href="https://wa.me/51960756083?text=Hola,%20quiero%20adquirir%20el%20curso%20HEC-HMS." target="_blank" class="btn btn-whatsapp-main" style="display:inline-block; width:auto; padding: 0.75rem 2rem;">Contactar por WhatsApp (+51 960756083)</a>
+        </div>
+
+        <!-- Built-in Analytics Dashboard -->
+        <div class="analytics-widget">
+            <h4>📊 Panel de Analítica en Vivo (Metricas de Visitantes)</h4>
+            <div class="analytics-grid" style="margin-top: 1rem;">
+                <div class="stat-box">
+                    <strong>🕒 Hora de Ingreso:</strong> <span id="stat-time">-</span>
+                </div>
+                <div class="stat-box">
+                    <strong>🌍 País Detectado:</strong> <span id="stat-country">Cargando...</span>
+                </div>
+                <div class="stat-box">
+                    <strong>⏱️ Tiempo de Permanencia:</strong> <span id="stat-duration">0s</span>
+                </div>
+                <div class="stat-box">
+                    <strong>👁️ Visitas Registradas:</strong> <span id="stat-visits">1</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 H&G Engineering & Virtuel. Todos los derechos reservados.</p>
+        <p>Consultora en Ingeniería Hidráulica e Hidrología.</p>
+    </footer>
+
+    <!-- Analytics JavaScript Tracker -->
+    <script>
+        const entryTime = new Date();
+        document.getElementById('stat-time').innerText = entryTime.toLocaleTimeString();
+
+        let secondsOnPage = 0;
+        setInterval(() => {
+            secondsOnPage++;
+            document.getElementById('stat-duration').innerText = secondsOnPage + 's';
+        }, 1000);
+
+        let visits = localStorage.getItem('hg_visits') || 0;
+        visits++;
+        localStorage.setItem('hg_visits', visits);
+        document.getElementById('stat-visits').innerText = visits;
+
+        fetch('https://ipapi.co/json/')
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.country_name) {
+                    document.getElementById('stat-country').innerText = `${data.country_name} (${data.country_code})`;
+                } else {
+                    document.getElementById('stat-country').innerText = 'Perú (PE)';
+                }
+            })
+            .catch(() => {
+                document.getElementById('stat-country').innerText = 'Perú (PE) [Local]';
+            });
+    </script>
+
+</body>
+</html>
